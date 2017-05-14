@@ -19,18 +19,17 @@ def make():
 @app.route("/send", methods=['POST'])
 def send():
     us = "appreciation10x@gmail.com"
-    #sender = request.form['sender']
-    sender = us
-    receiver = us
+    sender = request.form['sender']
+    mom = request.form['mom']
     subject = "Fijne moederdag, mama"
 
     message = MIMEMultipart()
     message['From'] = sender
-    message['To'] = receiver
+    message['To'] = mom
     message['Date'] = formatdate(localtime=True)
     message['Subject'] = subject
     
-    log_message = "{} sent a message for {}".format(sender, receiver)
+    log_message = "{} sent a message for {}".format(sender, mom)
 
     video_name = "message.mp4"
     video_data = request.files['video'].read()
@@ -42,7 +41,7 @@ def send():
     server.ehlo()
     server.starttls()
     server.login(us, os.environ.get('PASSWORD', ""))
-    server.sendmail(sender, receiver, message.as_string())
+    server.sendmail(sender, mom, message.as_string())
     server.sendmail(us, us, log_message)
     server.close()
 
