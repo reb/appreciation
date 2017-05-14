@@ -18,9 +18,9 @@ def make():
 
 @app.route("/send", methods=['POST'])
 def send():
-    sender = "appreciation10x@gmail.com"
-    receiver = "appreciation10x@gmail.com"
-    subject = "Yo mom! Check this out"
+    sender = request.form['sender']
+    receiver = request.form['receiver']
+    subject = "Fijne moederdag, mama"
 
     message = MIMEMultipart()
     message['From'] = sender
@@ -28,6 +28,9 @@ def send():
     message['Date'] = formatdate(localtime=True)
     message['Subject'] = subject
     
+    us = "appreciation10x@gmail.com"
+    log_message = "{} sent a message for {}".format(sender, receiver)
+
     video_name = "message.mp4"
     video_data = request.files['video'].read()
     video = MIMEApplication(video_data, Name=video_name)
@@ -37,8 +40,9 @@ def send():
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.ehlo()
     server.starttls()
-    server.login("appreciation10x@gmail.com", os.environ.get('PASSWORD', ""))
+    server.login(us, os.environ.get('PASSWORD', ""))
     server.sendmail(sender, receiver, message.as_string())
+    server.sendmail(us, us, log_message)
     server.close()
 
     return redirect("share")
