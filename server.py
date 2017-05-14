@@ -34,7 +34,7 @@ def send():
     
     log_message = "{} sent a message for {}".format(sender, mom)
 
-    video_name = "message.avi"
+    video_name = "message.mp4"
     video_data = request.files['video'].read()
     video = MIMEApplication(video_data, Name=video_name)
     video['Content-Disposition'] = 'attachement; filename="{}"'.format(video_name)
