@@ -18,7 +18,7 @@ html {
 
 body {
   margin: 0;
-  background-color: #FCFBD5;
+  background-color: #ffffff;
 }
 
 /* HTML5 display definitions
@@ -138,7 +138,7 @@ h1 {
   margin: 0.67em 0;
   color: #E94C57;
   text-align: center;
-  font-family: "open sans", 800px;
+  font-weight: 800;
 }
 
 h2 {
@@ -446,6 +446,18 @@ th {
 
 }
 
+.question1 {
+  text-align: center;
+  font-style: italic;
+  font-size: 2.6rem;
+  color: #7F7F7F;
+
+}
+
+.mockup {
+  padding-top: 20px;
+}
+
 .card {
   background-color: #ffffff;
   padding-top: 20px;
@@ -460,7 +472,7 @@ th {
 
 img {
     width: 100%;
-    max-width: 240px;
+    max-width: 340px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -470,8 +482,4 @@ img {
   background-color: #0058FF;
   height: 1PX;
   margin-bottom: 20PX;
-}
-
-body {
-  background-image: url("../img/dots.svg");
 }
