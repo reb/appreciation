@@ -46,6 +46,7 @@ def send():
     server.starttls()
     server.login(us, os.environ.get('PASSWORD', ""))
     server.sendmail(sender, mom, message.as_string())
+    server.sendmail(us, sender, message.as_string())
     server.sendmail(us, us, log_message)
     server.close()
 
