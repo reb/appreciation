@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, send_from_directory
 import smtplib
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from email.utils import formatdate
 import sys
 import os
@@ -21,6 +22,7 @@ def send():
     us = "appreciation10x@gmail.com"
     sender = request.form['sender']
     mom = request.form['mom']
+    body = request.form['body']
     subject = "Fijne moederdag, mama"
 
     message = MIMEMultipart()
@@ -32,11 +34,12 @@ def send():
     
     log_message = "{} sent a message for {}".format(sender, mom)
 
-    video_name = "message.mp4"
+    video_name = "message.avi"
     video_data = request.files['video'].read()
     video = MIMEApplication(video_data, Name=video_name)
     video['Content-Disposition'] = 'attachement; filename="{}"'.format(video_name)
     message.attach(video)
+    message.attach(MIMEText(body))
 
     server = smtplib.SMTP('smtp.gmail.com:587')
     server.ehlo()
