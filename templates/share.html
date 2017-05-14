@@ -28,6 +28,30 @@
 
 </head>
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.9";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -40,11 +64,13 @@
       <div class="card">
         <p class="question">Share MyApprication with your friends to make their mother happy.</p> 
       <div class="startings">
-        <a class="twitter-share-button"
-          href="https://twitter.com/intent/tweet?text= https://www.MyApprication.co"
-          data-size="large">
-          Tweet</a>
-      <a href="recording.html"><div class="start button"> Facebook </div></a>
+          <a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet" 
+  data-size="large">
+Tweet</a>
+      </div>      
+      <div class="startings">
+      <div class="fb-like" data-href="https://www.MyAppreciation.com" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="false"></div>
       
       </div>      
     </div>
