@@ -18,8 +18,10 @@ def make():
 
 @app.route("/send", methods=['POST'])
 def send():
-    sender = request.form['sender']
-    receiver = request.form['receiver']
+    us = "appreciation10x@gmail.com"
+    #sender = request.form['sender']
+    sender = us
+    receiver = us
     subject = "Fijne moederdag, mama"
 
     message = MIMEMultipart()
@@ -28,7 +30,6 @@ def send():
     message['Date'] = formatdate(localtime=True)
     message['Subject'] = subject
     
-    us = "appreciation10x@gmail.com"
     log_message = "{} sent a message for {}".format(sender, receiver)
 
     video_name = "message.mp4"

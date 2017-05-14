@@ -20,41 +20,39 @@
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="static/css/normalize.css">
+  <link rel="stylesheet" href="static/css/skeleton.css">
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="static/images/favicon.png">
 
 </head>
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<form action="send" method="post" enctype="multipart/form-data">
   <div class="container">
     <div class="row">
       <div class="twelve columns" style="margin-top: 25%">
         <h1>MyAppreciation</h1>
         <h2>Get started 🤗</h2>
 
-        <form>
-  <div class="row">
-    <div class="six columns">
-      <label for="exampleEmailInput">Your mothers email</label>
-      <input class="u-full-width" type="email" placeholder="mom@iloveyou.com" id="exampleEmailInput">
-    </div>
+          <div class="row">
+            <div class="six columns">
+              <label for="exampleEmailInput">Your mothers email</label>
+              <input class="u-full-width" type="email" placeholder="mom@iloveyou.com" id="receiver">
+            </div>
 
-    </div>
-  </div>
+          </div>
+      </div>
   <label for="exampleMessage">Message to go with your video</label>
   <textarea class="u-full-width" placeholder="Hi mom …" id="exampleMessage"></textarea>
   <label class="example-send-yourself-copy">
     <input type="checkbox">
     <span class="label-body">Send a copy to yourself</span>
   </label>
-</form>
-      
       <div class="card">
       <div class="lijntje"></div>
        <h2>Let's record 🎥</h2>
@@ -62,12 +60,14 @@
          <p class="question1">1. My favourite memory is...</p>
          <p class="question1">2. mom you're the coolst becasue...  </p> 
       <div class="startings">
-      <a href="recording"><div class="start button"> record </div></a>
+          <input type="file" name="video" accept="video/*" capture>
+          <input type="submit" value="Upload">
       </div>      
     </div>
     </div>
 </div>
     
+</form>
 
 <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
