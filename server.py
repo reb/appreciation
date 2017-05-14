@@ -25,6 +25,7 @@ def send():
 
     message = MIMEMultipart()
     message['From'] = sender
+    message['Reply-To'] = sender
     message['To'] = mom
     message['Date'] = formatdate(localtime=True)
     message['Subject'] = subject
